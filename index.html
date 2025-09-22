@@ -83,9 +83,9 @@
 
     .grid{
       display:grid; gap: clamp(16px, 2.5vw, 28px);
+      grid-template-columns: 1fr;
     }
     .card{
-      grid-column: span 12;
       border:1px solid var(--border); background:var(--card);
       border-radius: var(--radius); padding: clamp(16px, 2.2vw, 24px); box-shadow: var(--shadow);
     }
@@ -108,7 +108,7 @@
 
     @media (min-width: 900px){
       .hero-split{ display:grid; grid-template-columns: 1.2fr .8fr; gap: 32px }
-      .card.span-6{ grid-column: span 6 }
+
       .kv{ grid-template-columns: 1fr 1fr }
     }
 
