@@ -1,11 +1,270 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Coming Soon</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VibeDroning.ai — Adapt. Outpace. Dominate.</title>
+  <meta name="description" content="VibeDroning.ai enables one-day drone software adaptation cycles to outpace enemy upgrades—keeping adversaries at a disadvantage 13 days out of every 14." />
+
+  <!-- Open Graph / Twitter (optional but nice for sharing) -->
+  <meta property="og:title" content="VibeDroning.ai — Adapt. Outpace. Dominate.">
+  <meta property="og:description" content="One-day drone software adaptation cycles that outpace enemy upgrades.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vibedroning.ai/">
+  <meta property="og:image" content="https://vibedroning.ai/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Favicon placeholder -->
+  <link rel="icon" href="/favicon.ico">
+
+  <!-- Inline, production-ready CSS -->
+  <style>
+    :root{
+      --bg: #0b0c10;
+      --bg-elev: #101218;
+      --text: #e6e9ef;
+      --muted: #b2b7c2;
+      --accent: #7dd3fc;
+      --accent-2: #34d399;
+      --border: #1f2430;
+      --card: #0f1117;
+
+      --radius: 16px;
+      --shadow: 0 2px 24px rgba(0,0,0,.35);
+      --maxw: 1120px;
+    }
+    @media (prefers-color-scheme: light){
+      :root{
+        --bg:#f8fafc; --bg-elev:#ffffff; --text:#0f172a; --muted:#475569;
+        --border:#e2e8f0; --card:#ffffff; --accent:#0ea5e9; --accent-2:#059669;
+      }
+    }
+    *,*::before,*::after{ box-sizing:border-box }
+    html,body{ height:100% }
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:var(--bg); color:var(--text); line-height:1.6;
+      text-rendering:optimizeLegibility; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+    }
+    a{ color:var(--accent); text-underline-offset:3px }
+    .container{ max-width:var(--maxw); margin-inline:auto; padding: clamp(16px, 3vw, 32px) }
+    .stack{ display:grid; gap: clamp(16px, 2.2vw, 28px) }
+    header{
+      position:sticky; top:0; backdrop-filter:saturate(180%) blur(8px);
+      background: color-mix(in oklab, var(--bg), transparent 30%);
+      border-bottom:1px solid var(--border); z-index:10;
+    }
+    .brand{ display:flex; align-items:center; gap:12px; font-weight:700; letter-spacing:.3px }
+    .logo{
+      width:28px; height:28px; border-radius:8px;
+      background: conic-gradient(from 180deg at 50% 50%, var(--accent), var(--accent-2), var(--accent));
+      box-shadow: var(--shadow);
+    }
+
+    .hero{
+      padding-block: clamp(48px, 8vw, 120px);
+      display:grid; gap:24px;
+    }
+    .eyebrow{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:6px 10px; font-size:.85rem; color:var(--muted);
+      border:1px solid var(--border); border-radius:999px;
+      background: var(--bg-elev);
+    }
+    h1{
+      font-size: clamp(2rem, 4.5vw, 4rem);
+      line-height:1.1; margin:0;
+      letter-spacing:-.02em;
+    }
+    .lead{
+      font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+      color:var(--muted); max-width: 68ch;
+    }
+
+    .grid{
+      display:grid; gap: clamp(16px, 2.5vw, 28px);
+      grid-template-columns: repeat(12, minmax(0,1fr));
+    }
+    .card{
+      grid-column: span 12;
+      border:1px solid var(--border); background:var(--card);
+      border-radius: var(--radius); padding: clamp(16px, 2.2vw, 24px); box-shadow: var(--shadow);
+    }
+    .card h3{ margin-top:0; margin-bottom:.4rem; letter-spacing:-.01em }
+    .muted{ color:var(--muted) }
+    .list{ margin:0; padding-left:1.2rem }
+    .kv{
+      display:grid; gap:8px;
+      grid-template-columns: 1fr; align-items:start
+    }
+    .kpi{
+      display:flex; align-items:baseline; gap:10px; flex-wrap:wrap
+    }
+    .kpi .num{
+      font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight:800;
+      background: linear-gradient(90deg,var(--accent),var(--accent-2));
+      -webkit-background-clip:text; background-clip:text; color:transparent;
+    }
+    .kpi .cap{ color:var(--muted) }
+
+    @media (min-width: 900px){
+      .hero-split{ display:grid; grid-template-columns: 1.2fr .8fr; gap: 32px }
+      .card.span-6{ grid-column: span 6 }
+      .kv{ grid-template-columns: 1fr 1fr }
+    }
+
+    .badge{
+      display:inline-flex; align-items:center; gap:8px; padding:6px 10px;
+      border:1px dashed var(--border); border-radius:10px; color:var(--muted)
+    }
+
+    footer{
+      margin-top: clamp(40px, 8vw, 96px);
+      border-top:1px solid var(--border); background:var(--bg-elev)
+    }
+    .footer-grid{ display:grid; gap:20px }
+    @media (min-width: 720px){
+      .footer-grid{ grid-template-columns: 1fr auto }
+    }
+
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
+    .skip-link{
+      position:absolute; left:-9999px;
+    }
+    .skip-link:focus{
+      left:16px; top:16px; z-index:50; background:var(--bg-elev); color:var(--text);
+      padding:8px 12px; border-radius:8px; border:1px solid var(--border)
+    }
+    @media (prefers-reduced-motion: no-preference){
+      .hero [data-anim]{ transform: translateY(6px); opacity:.001; animation: rise .7s .1s both }
+      .hero [data-anim="2"]{ animation-delay:.2s }
+      .hero [data-anim="3"]{ animation-delay:.3s }
+      @keyframes rise{ to{ transform:none; opacity:1 } }
+    }
+    code.inline{
+      padding: .15em .35em; border-radius: 6px; background: var(--bg-elev); border:1px solid var(--border)
+    }
+  </style>
+
+  <!-- Simple Schema.org Organization markup -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"VibeDroning.ai",
+    "url":"https://vibedroning.ai",
+    "logo":"https://vibedroning.ai/og-image.png",
+    "sameAs":[]
+  }
+  </script>
 </head>
 <body>
-  <h1>Coming Soon</h1>
-  <p>tero.keskivalkama@gmail.com</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header -->
+  <header role="banner">
+    <div class="container" style="display:flex; align-items:center; justify-content:space-between; min-height:64px;">
+      <div class="brand" aria-label="VibeDroning.ai">
+        <span class="logo" aria-hidden="true"></span>
+        <span>VibeDroning.ai</span>
+      </div>
+      <span class="badge" aria-label="Early concept">
+        <span aria-hidden="true">🧪</span> Pre-launch
+      </span>
+    </div>
+  </header>
+
+  <main id="main" class="container stack" role="main">
+    <!-- Hero -->
+    <section class="hero hero-split" aria-labelledby="hero-title">
+      <div>
+        <span class="eyebrow" data-anim="1">Adapt. Outpace. Dominate.</span>
+        <h1 id="hero-title" data-anim="2">Drone warfare moves fast. You need to move faster.</h1>
+        <p class="lead" data-anim="3">
+          The enemy evolves daily. Traditional 14-day Scrum sprints can’t keep up.
+          VibeDroning.ai enables AI-driven software updates in <strong>one day</strong>,
+          keeping adversaries at a disadvantage <strong>13 out of every 14 days</strong>.
+        </p>
+      </div>
+
+      <aside class="card" aria-label="Key outcomes">
+        <div class="kv">
+          <div class="kpi">
+            <span class="num">1-day</span>
+            <span class="cap">adaptation cycle</span>
+          </div>
+          <div class="kpi">
+            <span class="num">~93%</span>
+            <span class="cap">time advantage</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- Problem -->
+    <section class="grid" aria-labelledby="problem">
+      <article class="card span-6">
+        <h2 id="problem">The battlefield has changed</h2>
+        <ul class="list">
+          <li>Enemy drones adapt quickly and asymmetrically.</li>
+          <li>Software lags behind hardware without continuous delivery.</li>
+          <li>Standard 14-day cycles leave fleets exposed.</li>
+        </ul>
+        <p class="muted">Every day your drones aren’t updated is a day the enemy learns how to counter them.</p>
+      </article>
+
+      <!-- Solution -->
+      <article class="card span-6">
+        <h2>Instant drone evolution</h2>
+        <p><strong>VibeDroning.ai</strong> compresses the cycle from weeks to <em>one day</em> through:</p>
+      </article>
+    </section>
+
+    <!-- Value Props -->
+    <section class="grid" aria-labelledby="value">
+      <div class="card span-6">
+        <h3 id="value">Why it matters</h3>
+        <ul class="list">
+          <li><strong>Speed:</strong> 14 days → <strong>1 day</strong>.</li>
+          <li><strong>Superiority:</strong> Maintain dominance ~<strong>93%</strong> of the time.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Technology highlights -->
+    <section class="grid" aria-labelledby="tech">
+      <article class="card span-6">
+        <h3 id="tech">Tech pillars</h3>
+        <ul class="list">
+          <li>AI managed close-to-iron stack from code to physical entities</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- Vision -->
+    <section class="card" aria-labelledby="vision">
+      <h2 id="vision">Our vision</h2>
+      <p>Drone software should learn, adapt, and fight back in real time. With VibeDroning.ai, warfare isn’t about catching up—it’s about staying ahead.</p>
+    </section>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container footer-grid">
+      <small class="muted">
+        © <span id="y">2025</span> VibeDroning.ai. All rights reserved.
+      </small>
+      <small>
+        Contact: <a href="mailto:contact@vibedroning.ai">contact@vibedroning.ai</a>
+      </small>
+    </div>
+  </footer>
+
+  <script>
+    // Keeps the footer year current (no frameworks, no dependencies).
+    (function(){
+      var y=document.getElementById('y');
+      if(y) y.textContent=new Date().getFullYear();
+    }());
+  </script>
 </body>
 </html>
